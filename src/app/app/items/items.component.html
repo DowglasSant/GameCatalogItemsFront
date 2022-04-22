@@ -1,36 +1,50 @@
-<h2>Course List</h2>
+<router-outlet>
 
-<div class="form-group row">
+    <body>
+        <h2 class="header">Items List</h2>
 
-    <label class="col-sm-2 col-form-label">Filter By:</label>
+        <br>
 
-    <div class="col-sm-10">
-        <input [(ngModel)]="filter" class="form-control">
-    </div>
+        <div class="form-group row">
 
-</div>
+            <label class="col-sm-2 col-form-label">Filter By:</label>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Code</th>
-            <th>Release Date</th>
-            <th>Options</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of items">
-            <td>{{ item.name }}</td>
-            <td>{{ item.price }}</td>
-            <td>{{ item.percentage }}</td>
-            <td>{{ item.dataDeAdicao | date: 'dd/MM/yyyy' }}</td>
-            <td>
-                <a class="btn btn-primary mr-2">Edit</a>
-                <button class="btn btn-danger">Delete</button>
-            </td>
-        </tr>
-    </tbody>
+            <input [(ngModel)]="filter" class="form-control">
+        </div>
 
-</table>
+        <br>
+        <br>
+
+        <button routerLink="/create" class="btn btn-primary1">
+            Create Item</button>
+
+        <button routerLink="/update" class="btn btn-primary2">
+            Update Item</button>
+
+        <div class="container">
+            <table class="table table-striped table-bordered table-condensed table-hover">
+                <thead class="cabecalho">
+                    <tr class="columm">
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Code</th>
+                        <th>Percentage</th>
+                        <th>Addition Date</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody class="lines">
+                    <tr *ngFor="let item of items | filter: filter">
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.price }}</td>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.percentage }}</td>
+                        <td>{{ item.createdDate | date: 'dd/MM/yyyy' }}</td>
+                        <td><button class="remover" (click)="remover(item.id)">Remover</button></td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </body>
+</router-outlet>

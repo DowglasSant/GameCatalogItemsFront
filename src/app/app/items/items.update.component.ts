@@ -1,17 +1,16 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { Item } from 'src/app/Model/Item';
 import { ItemService } from './items.component.service';
 
 @Component({
-    selector: 'create-app-items',
-    templateUrl: './items.create.component.html',
-    styleUrls: ['./items.create.component.css']
+    selector: 'update-app-items',
+    templateUrl: './items.update.component.html',
+    styleUrls: ['./items.update.component.css']
 })
-export class ItemsCreateComponent implements OnInit {
+export class ItemsUpdateComponent implements OnInit {
 
     item: any;
+    id?: any[];
 
     constructor(private itemService: ItemService) { }
 
@@ -19,8 +18,9 @@ export class ItemsCreateComponent implements OnInit {
         this.item = {};
     }
 
-    save(frm: NgForm): void {
-        this.itemService.save(this.item).subscribe(data => {
+    update(id: any, frm: NgForm): void {
+        console.log(id);
+        this.itemService.updateItem(id, this.item).subscribe(data => {
             this.item = data;
             frm.reset();
         })

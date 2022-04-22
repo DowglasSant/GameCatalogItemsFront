@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Item } from 'src/app/Model/Item';
 
 
@@ -9,19 +9,33 @@ import { Item } from 'src/app/Model/Item';
 })
 export class ItemService {
 
-    private itemUrl: string = '';
+    private itemUrl: string = 'https://localhost:7187/items/';
 
     httpOptions = {
-        Headers: new HttpHeaders({ 'content-type': 'application/json' })
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json'
+        })
     }
 
-    constructor(private httpClient: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-    save(item: Item): Observable<Item> {
-        if (item.id) {
-            return this.httpClient.put<Item>(`${this.itemUrl}/${item.id}`, item);
-        } else {
-            return this.httpClient.post<Item>(`${this.itemUrl}`, item);
-        }
+    save(item: any): Observable<any> {
+        return this.http.post(this.itemUrl, item).pipe(tap(console.log))
+    };
+
+    retrieveAll(): Observable<Item[]> {
+        return this.http.get<Item[]>(this.itemUrl);
     }
+
+    retrieveById(id: number): Observable<Item> {
+        return this.http.get<Item>(`${this.itemUrl}/${id}`);
+    }
+
+    deleteItem(id: any): Observable<any> {
+        return this.http.delete(this.itemUrl.concat(id)).pipe(tap(console.log))
+    };
+
+    updateItem(id: any, item: any): Observable<any> {
+        return this.http.put(this.itemUrl.concat(id), item).pipe(tap(console.log))
+    };
 }

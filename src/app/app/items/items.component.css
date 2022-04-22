@@ -1,0 +1,80 @@
+.cabecalho {
+    font-size: large;
+    white-space: nowrap;
+    text-align: center;
+    border-collapse: separate;
+    background-color: #1a1a1a;
+    color: #FFF;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+}
+
+.text-center {
+    margin-top: 40px;
+    color: #FFF;
+}
+
+.header {
+    text-align: center;
+    margin-top: 50px;
+    color: #FFF;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+    font-size: 50px;
+}
+
+.lines {
+    font-size: medium;
+    white-space: nowrap;
+    text-align: center;
+    border-collapse: separate;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.btn-primary1 {
+    background-color: #FFF;
+    color: #000;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+    font-size: large;
+    margin-left: 282px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.btn-primary2 {
+    background-color: #FFF;
+    color: #000;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+    font-size: large;
+    font-weight: bold;
+}
+
+.table-striped {
+    margin: auto;
+    height: auto;
+}
+
+.row {
+    text-align: center;
+    font-size: large;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+    font-weight: bold;
+    color: #FFF;
+}
+
+table td {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-top: 5px;
+}
+
+table th {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.remover {
+    font-weight: bold;
+}
