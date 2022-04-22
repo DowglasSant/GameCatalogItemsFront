@@ -1,7 +1,5 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { Item } from 'src/app/Model/Item';
 import { ItemService } from './items.component.service';
 
 @Component({

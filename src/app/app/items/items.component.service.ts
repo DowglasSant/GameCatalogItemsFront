@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import { Item } from 'src/app/Model/Item';
 
 
 @Injectable({
@@ -23,12 +22,12 @@ export class ItemService {
         return this.http.post(this.itemUrl, item).pipe(tap(console.log))
     };
 
-    retrieveAll(): Observable<Item[]> {
-        return this.http.get<Item[]>(this.itemUrl);
+    retrieveAll(): Observable<any[]> {
+        return this.http.get<any[]>(this.itemUrl);
     }
 
-    retrieveById(id: number): Observable<Item> {
-        return this.http.get<Item>(`${this.itemUrl}/${id}`);
+    retrieveById(id: number): Observable<any> {
+        return this.http.get<any>(`${this.itemUrl}/${id}`);
     }
 
     deleteItem(id: any): Observable<any> {
